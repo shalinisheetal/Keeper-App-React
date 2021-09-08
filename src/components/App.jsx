@@ -8,9 +8,19 @@ import CreateNote from "./CreateNote";
 function App(){
     const [notes, setNotes] = useState([]);
 
+    // add new note to the array of previous notes
     function addNote(newNote){
         setNotes(prevNotes => {
             return [...prevNotes, newNote];
+        });
+    }
+
+    // index of note to be deleted passed
+    function deleteNote(id){
+        setNotes(prevNotes => {
+            return prevNotes.filter((note, index) => {
+                return id !== index;
+            });
         });
     }
 
@@ -18,7 +28,12 @@ function App(){
         <div>
             <Header />
             <CreateNote onAdd={addNote}/>
-            {notes.map(note => <Note key={note.key} title={note.title} content={note.content}/>)}
+            {notes.map((note,index) => <Note key={index} 
+                                     id={index} 
+                                     title={note.title} 
+                                     content={note.content} 
+                                     onDelete={deleteNote}
+                                />)}
             <Footer />
         </div>
     );

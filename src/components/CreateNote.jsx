@@ -6,6 +6,7 @@ function CreateNote(props){
         content:""
     });
 
+    // handle change when a new note is being typed
     function handleChange(event){
         const {name, value} = event.target;
         setNote(prevValue => {
@@ -16,9 +17,13 @@ function CreateNote(props){
         });
     }
 
-    // 
+    // when add button is clicked
     function submitNote(event){
         props.onAdd(note);
+        setNote({
+            title:"",
+            content:""
+        });
         event.preventDefault();
     }
 
