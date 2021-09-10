@@ -35,6 +35,7 @@ function CreateNote(props) {
     event.preventDefault();
   }
 
+  // to handle expansion of create area
   function expand() {
     setIsTyping(true);
   }
