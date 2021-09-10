@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+// Material ui imports
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
@@ -6,7 +8,7 @@ import Zoom from "@material-ui/core/Zoom";
 function CreateNote(props) {
   const [note, setNote] = useState({
     title: "",
-    content: "",
+    content: ""
   });
 
   // for expanding the create area
@@ -18,7 +20,7 @@ function CreateNote(props) {
     setNote((prevValue) => {
       return {
         ...prevValue,
-        [name]: value,
+        [name]: value
       };
     });
   }
@@ -28,7 +30,7 @@ function CreateNote(props) {
     props.onAdd(note);
     setNote({
       title: "",
-      content: "",
+      content: ""
     });
     event.preventDefault();
   }
